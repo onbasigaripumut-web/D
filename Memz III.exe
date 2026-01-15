@@ -1,0 +1,15 @@
+rule Suspicious_Markers
+{
+  meta:
+    author = "assistant"
+    description = "Detects suspicious markers or common obfuscation patterns"
+    date = "2026-01-15"
+
+  strings:
+    $s1 = "CreateRemoteThread" ascii
+    $s2 = "VirtualAlloc" ascii
+    $s3 = "GetProcAddress" ascii
+
+  condition:
+    any of them
+}
